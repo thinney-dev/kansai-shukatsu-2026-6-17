@@ -80,7 +80,7 @@ const CompaniesSection = () => {
     { 
       id: 3, 
       name: "P&G", 
-      tags: ["外資系メーカー", "マーケティング"], 
+      tags: ["外資系", "マーケティング"], 
       logoImage: "/logo-P&G.png",
       url: "https://jp.pg.com/",
       details: {
