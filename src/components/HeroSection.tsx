@@ -12,7 +12,7 @@ const images = [
 
 // ▼▼▼ 6月LP用：下部に表示するテキストリスト ▼▼▼
 const otherCompanies = [
-   "残り枠３社Coming Soon..."
+   "残り枠数社Coming Soon..."
 ];
 // ▲▲▲ 追加ここまで ▲▲▲
 

@@ -6,7 +6,7 @@ import React from "react";
 const CompaniesSection = () => {
   const [selectedCompany, setSelectedCompany] = useState<any | null>(null);
 
-  // 安全対策：画面遷移時などにスクロールやメニュー非表示が戻らなくなるのを防ぐ
+  // 安全対策
   useEffect(() => {
     return () => {
       document.body.style.overflow = 'unset';
@@ -19,13 +19,10 @@ const CompaniesSection = () => {
   }, []);
 
   const openModal = (company: any) => {
-    // ▼ 修正：Coming Soonの場合はモーダルを開かない
     if (company.isComingSoon) return;
-
     setSelectedCompany(company);
     document.body.style.overflow = 'hidden';
     
-    // スマホメニューボタンを隠す
     const menuBtn = document.getElementById('mobile-menu-btn');
     if (menuBtn) {
       menuBtn.style.opacity = '0';
@@ -37,7 +34,6 @@ const CompaniesSection = () => {
     setSelectedCompany(null);
     document.body.style.overflow = 'unset';
     
-    // スマホメニューボタンを再表示
     const menuBtn = document.getElementById('mobile-menu-btn');
     if (menuBtn) {
       menuBtn.style.opacity = '1';
@@ -45,7 +41,7 @@ const CompaniesSection = () => {
     }
   };
 
-  // ▼▼▼ 6月LP用：出展企業リスト（データのみ入れ替え） ▼▼▼
+  // ▼▼▼ 6月LP用：出展企業リスト（P&Gを追加） ▼▼▼
   const companies = [
     { 
       id: 1, 
@@ -64,7 +60,6 @@ const CompaniesSection = () => {
         strength: "PwCコンサルティングの中でも、旧ブーズ・アンド・カンパニーの流れを汲む『Strategy&（戦略コンサルティング部門）』は、例年内定者の大半が東大生で占められる超難関部門です。グローバルな知見と圧倒的な思考力・実行力を武器に、CEOアジェンダと呼ばれる企業の最重要課題（M&A、全社改革、新規事業創出など）に切り込みます。若手のうちから経営トップと対峙し、社会にインパクトを与えるダイナミックな成長環境がここにあります。"
       }
     },
-    
     { 
       id: 2, 
       name: "デロイトトーマツ", 
@@ -84,6 +79,23 @@ const CompaniesSection = () => {
     },
     { 
       id: 3, 
+      name: "P&G", 
+      tags: ["外資系メーカー", "マーケティング"], 
+      logoImage: "/logo-P&G.png",
+      url: "https://jp.pg.com/",
+      details: {
+        catchphrase: "世界をリードするマーケティング・人材輩出企業",
+        stats: [
+          { label: "グローバルブランド", value: "アリエール、パンパース等多数" },
+          { label: "ビジネスモデル", value: "世界最大級の消費財メーカー" },
+          { label: "成長環境", value: "若手から数億円規模の裁量権" },
+          { label: "キャリア", value: "世界最高峰のリーダー育成機関" }
+        ],
+        strength: "世界最大級の消費財メーカーであり、世界トップクラスのマーケティング・リーダーシップ育成環境を誇ります。入社1年目から大きな裁量権が与えられ、数億円規模の予算を動かすなど、圧倒的なスピードで成長できる環境が整っています。P&G出身のリーダーが世界中の名だたる企業のCEOを務めていることから『CEO輩出企業』としても知られています。"
+      }
+    },
+    { 
+      id: 4, 
       name: "富士通", 
       tags: ["IT・通信", "グローバルSIer"], 
       logoImage: "/logo-富士通.png",
@@ -99,32 +111,16 @@ const CompaniesSection = () => {
         strength: "日本トップ、世界トップクラスのITサービス企業として、官公庁から金融、製造、流通まで、あらゆる産業のデジタル変革（DX）を裏側で支えています。近年は「IT企業」から「DX企業」への変革を強力に推し進めており、AI（Fujitsu Kozuchi）や量子インスパイアード技術などの最先端テクノロジーを駆使して、持続可能な社会の実現（サステナビリティ・トランスフォーメーション）に挑むスケールの大きな仕事が魅力です。"
       }
     },
-    // ▼ Coming Soon 枠（ダミーデータ）
-    { 
-      id: 4, 
-      name: "Coming Soon", 
-      tags: ["？？？", "？？？"], 
-      isComingSoon: true 
-    },
-    { 
-      id: 5, 
-      name: "Coming Soon", 
-      tags: ["？？？", "？？？"], 
-      isComingSoon: true 
-    },
-    { 
-      id: 6, 
-      name: "Coming Soon", 
-      tags: ["？？？", "？？？"], 
-      isComingSoon: true 
-    },
+    { id: 5, name: "Coming Soon", tags: ["？？？", "？？？"], isComingSoon: true },
+    { id: 6, name: "Coming Soon", tags: ["？？？", "？？？"], isComingSoon: true },
+    { id: 7, name: "Coming Soon", tags: ["？？？", "？？？"], isComingSoon: true },
+    { id: 8, name: "Coming Soon", tags: ["？？？", "？？？"], isComingSoon: true },
   ];
 
   return (
     <section className="py-12 px-6 md:px-10 bg-slate-50 relative">
       <div className="max-w-3xl mx-auto">
         
-        {/* ヘッダーエリア */}
         <div className="text-center mb-10">
            <div className="mb-6">
              <h2 className="text-2xl md:text-3xl font-serif font-medium text-[#0B1E46] mb-3 tracking-wide">
@@ -146,7 +142,6 @@ const CompaniesSection = () => {
            </p>
         </div>
 
-        {/* 企業ロゴカード一覧（4月LPと全く同じUI） */}
         <div className="grid grid-cols-2 gap-4 md:gap-5 mb-8">
           {companies.map((company: any) => (
             <button
@@ -189,7 +184,6 @@ const CompaniesSection = () => {
         </p>
       </div>
 
-      {/* ▼▼▼ 企業詳細モーダル（4月LPと全く同じUI） ▼▼▼ */}
       {selectedCompany && typeof document !== 'undefined'
         ? createPortal(
             <div 
@@ -197,12 +191,10 @@ const CompaniesSection = () => {
               style={{ zIndex: 9999 }} 
               onClick={closeModal}
             >
-              {/* モーダル本体 */}
               <div 
                 className="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh] animate-in zoom-in-95 duration-200"
                 onClick={(e) => e.stopPropagation()}
               >
-                {/* モーダルヘッダー */}
                 <div className="relative pt-8 pb-4 px-6 border-b border-slate-100 flex flex-col items-center bg-slate-50/50">
                   <button 
                     onClick={closeModal}
@@ -222,9 +214,7 @@ const CompaniesSection = () => {
                   <p className="text-xs font-bold text-[#B8860B] mt-1.5 text-center px-4">{selectedCompany.details.catchphrase}</p>
                 </div>
 
-                {/* モーダルコンテンツ（スクロール可能） */}
                 <div className="p-6 overflow-y-auto space-y-5 flex-1 bg-white">
-                  
                   <div className="grid grid-cols-2 gap-3">
                     {selectedCompany.details.stats.map((stat: any, i: number) => (
                       <div key={i} className="bg-white border border-[#B8860B]/20 rounded-lg p-3 shadow-sm relative overflow-hidden">
@@ -235,7 +225,6 @@ const CompaniesSection = () => {
                     ))}
                   </div>
 
-                  {/* 強み・特徴エリア */}
                   <div className="bg-[#0B1E46]/5 rounded-lg p-4 border border-[#0B1E46]/10">
                     <div className="flex items-center gap-2 mb-2">
                       <Lightbulb className="w-5 h-5 text-[#B8860B]" />
@@ -246,7 +235,6 @@ const CompaniesSection = () => {
                     </p>
                   </div>
 
-                  {/* タグエリア */}
                   <div className="flex flex-wrap gap-2 pt-2">
                     {selectedCompany.tags.map((tag: string, i: number) => (
                       <span key={i} className="text-xs px-2.5 py-1 border border-slate-200 rounded-md bg-slate-50 text-slate-500 font-bold">
@@ -256,7 +244,6 @@ const CompaniesSection = () => {
                   </div>
                 </div>
 
-                {/* フッター（HPリンク） */}
                 <div className="p-4 border-t border-slate-100 bg-slate-50">
                   <a 
                     href={selectedCompany.url}
