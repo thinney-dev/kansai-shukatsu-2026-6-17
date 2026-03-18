@@ -82,7 +82,7 @@ const HeroSection = () => {
                   ＼ 内定者の大半が東大生という超難関が降臨 ／
                 </p>
                 <p className="relative z-10 text-[13px] md:text-lg font-bold text-[#0B1E46] leading-relaxed">
-                  目玉枠：<span className="text-[#DC143C] font-black text-lg md:text-2xl tracking-wide mx-1">PwC Strategy&</span><span className="text-xs md:text-sm">（戦略コンサル部門）</span>
+                  <span className="text-[#fd5109] font-black text-lg md:text-2xl tracking-wide mx-1">PwC Strategy&</span><span className="text-xs md:text-sm">（戦略コンサル部門）</span>
                 </p>
              </div>
           </div>
