@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ChevronRight, Users, MapPin, Ticket, CalendarClock } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 
 const images = [
   "/Herosection-4.png",
@@ -9,17 +10,9 @@ const images = [
   "/Herosection-2.png"
 ];
 
-// ▼▼▼ 5月LP用：メイン企業ロゴとその他の企業名リスト ▼▼▼
-const mainCompanies = [
-  {
-    id: "logo1",
-    name: "Kubota", // ファーストビューに表示する企業
-    logoSrc: "/logo-Kubota.png", 
-  }
-];
-
+// ▼▼▼ 6月LP用：下部に表示するテキストリスト ▼▼▼
 const otherCompanies = [
-   "AnyMind Group株式会社", "株式会社船井総合研究所", "株式会社クスリのアオキ", "他2社（未定）"
+   "Coming Soon...", "Coming Soon...", "Coming Soon..."
 ];
 // ▲▲▲ 追加ここまで ▲▲▲
 
@@ -55,56 +48,68 @@ const HeroSection = () => {
 
           <div className="mt-10 md:mt-16 flex justify-center w-full animate-in fade-in zoom-in duration-1000 delay-200">
              <div className="inline-flex items-center gap-2 md:gap-3">
+                {/* ▼ 修正：アイコン色をゴールド（#B8860B）に戻しました ▼ */}
                 <CalendarClock className="w-6 h-6 md:w-8 md:h-8 text-[#B8860B] drop-shadow-sm" />
                 <span className="text-2xl md:text-3xl font-serif font-bold text-[#0B1E46] tracking-widest drop-shadow-sm">
-                   5/9<span className="text-lg md:text-xl mx-1 text-[#0B1E46] opacity-80">(土)</span>13:00~
+                   6/17<span className="text-lg md:text-xl mx-1 text-[#0B1E46] opacity-80">(水)</span>13:00~
                 </span>
              </div>
           </div>
 
           <div className="mt-2 flex justify-center w-full animate-in fade-in zoom-in duration-1000 delay-300">
              <div className="inline-flex items-center gap-2">
+                {/* ▼ 修正：アイコン色をゴールド（#B8860B）に戻しました ▼ */}
                 <MapPin className="w-5 h-5 md:w-6 md:h-6 text-[#B8860B] drop-shadow-sm" />
-                {/* ▼▼▼ 修正：場所をグランフロント大阪に変更 ▼▼▼ */}
                 <span className="text-lg md:text-xl font-serif font-bold text-[#0B1E46] tracking-wider drop-shadow-sm">
                 グランフロント大阪（予定）
                 </span>
              </div>
           </div>
 
-          <div className="mt-3 md:mt-4 flex flex-col items-center w-full animate-in fade-in zoom-in duration-1000 delay-400">
+          <div className="mt-4 md:mt-6 flex flex-col items-center w-full animate-in fade-in zoom-in duration-1000 delay-400">
              <p className="text-base md:text-xl font-serif font-bold text-[#0B1E46] tracking-wide leading-tight drop-shadow-sm flex flex-wrap items-baseline justify-center gap-1">
-                <span className="text-[#B8860B] text-lg md:text-2xl mx-1">超有名企業</span>
+                {/* ▼ 修正：アクセント色をゴールド（#B8860B）に戻しました ▼ */}
+                <span className="text-[#B8860B] text-lg md:text-2xl mx-1">最難関企業</span>
                 <span>参加決定</span>
              </p>
+
+             {/* ▼▼▼ PwC戦略部門の強烈アピールテキスト（ここだけは目立たせるために赤を残しています） ▼▼▼ */}
+             <div className="mt-3 md:mt-4 inline-flex flex-col items-center bg-gradient-to-br from-white to-red-50 border border-[#DC143C]/30 px-5 md:px-8 py-3 md:py-4 rounded-xl shadow-md relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-bl from-[#DC143C]/10 to-transparent rounded-bl-full z-0 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-[#DC143C]/5 to-transparent rounded-tr-full z-0 pointer-events-none"></div>
+                
+                <p className="relative z-10 text-[11px] md:text-sm font-bold text-slate-500 mb-1.5 tracking-wider">
+                  ＼ 内定者の大半が東大生という超難関が降臨 ／
+                </p>
+                <p className="relative z-10 text-[13px] md:text-lg font-bold text-[#0B1E46] leading-relaxed">
+                  目玉枠：<span className="text-[#DC143C] font-black text-lg md:text-2xl tracking-wide mx-1">PwC Strategy&</span><span className="text-xs md:text-sm">（戦略コンサル部門）</span>
+                </p>
+             </div>
           </div>
         </div>
 
-        {/* 企業ロゴセクション */}
-        <div className="w-screen md:w-full max-w-5xl mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500 bg-white py-6 md:py-8 md:rounded-2xl border-y md:border border-slate-200/80 shadow-sm flex flex-col justify-center items-center px-4 sm:px-8">
+        {/* 企業ロゴセクション（4月LPの白枠デザインを適用） */}
+        <div className="w-screen md:w-full max-w-5xl mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500 bg-white py-6 md:py-10 md:rounded-2xl border-y md:border border-slate-200/80 shadow-sm flex flex-col justify-center items-center px-4 sm:px-8">
             
-            {/* 上段：メインロゴ（今回は1社） */}
-            <div className="flex justify-center items-center gap-6 md:gap-12 w-full max-w-2xl mb-4 md:mb-6 px-2">
-               {mainCompanies.map((company) => (
-                 <div key={company.id} className="flex flex-1 justify-center">
-                   <img 
-                     src={company.logoSrc} 
-                     alt={`${company.name} ロゴ`}
-                     onError={(e) => {
-                       e.currentTarget.src = `https://placehold.co/400x160/e2e8f0/64748b?text=${encodeURIComponent(company.name)}`;
-                       e.currentTarget.className = "w-full max-w-[140px] md:max-w-[200px] h-auto object-contain opacity-70 rounded-md";
-                     }}
-                     className="w-full max-w-[160px] md:max-w-[240px] h-auto object-contain"
-                   />
-                 </div>
-               ))}
+            {/* 上段：メインロゴ（logo-hero.png の一枚絵） */}
+            <div className="flex justify-center items-center w-full max-w-3xl mb-6 md:mb-8 px-2">
+               <img 
+                 src="/logo-hero.png" 
+                 alt="参加決定企業一覧"
+                 onError={(e) => {
+                   e.currentTarget.src = "https://placehold.co/800x300/e2e8f0/64748b?text=logo-hero.png";
+                   e.currentTarget.className = "w-full max-w-[600px] h-auto object-contain opacity-70 rounded-md";
+                 }}
+                 className="w-full h-auto object-contain drop-shadow-sm"
+               />
             </div>
 
-            {/* 下段：その他の社名テキスト */}
-            <div className="w-full max-w-3xl flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-x-6 md:gap-y-3">
+            {/* 下段：その他の社名テキスト（スラッシュ区切り） */}
+            <div className="w-full max-w-3xl flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-x-6 md:gap-y-3 pt-2 md:pt-4 border-t border-slate-100">
                 {otherCompanies.map((name, index) => (
                   <div key={index} className="flex items-center">
-                    <span className="text-xs md:text-sm font-bold text-[#0B1E46] whitespace-nowrap tracking-wide">
+                    {/* ▼ 修正：テキストカラーを #0B1E46 に戻しました ▼ */}
+                    <span className="text-xs md:text-sm font-bold text-[#0B1E46] whitespace-nowrap tracking-wider">
                       {name}
                     </span>
                     {/* 最後の要素以外は区切り線を表示 */}
@@ -168,7 +173,7 @@ const HeroSection = () => {
                  </div>
                  <div className="text-left">
                     <p className="text-[9px] text-slate-400 font-bold tracking-widest uppercase">TARGET</p>
-                    <p className="text-sm font-bold text-[#0B1E46]">関関同立・国公立の28卒生</p>
+                    <p className="text-sm font-bold text-[#0B1E46]">京大・阪大・神大・海外大・<br />国公立大学院・海外大学院の28卒生</p>
                  </div>
               </div>
             </div>

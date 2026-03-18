@@ -16,7 +16,7 @@ import StickyFooter from "@/components/StickyFooter";
 import MobileMenu from "@/components/MobileMenu";
 import CampaignSection from "@/components/CampaignSection";
 import NextEventSection from "@/components/NextEventSection";
-import SakuraParticles from "@/components/SakuraParticles";
+// ▼ 修正: SakuraParticles のインポートを削除しました
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("top");
@@ -82,7 +82,6 @@ const Index = () => {
   ];
 
   return (
-    // ▼ 修正: overflow-hidden を削除しました（stickyを妨害するため）
     <div className="flex min-h-screen w-full bg-transparent font-sans text-[#0B1E46] selection:bg-purple-100 relative justify-center">
       
       {/* スマホ用メニュー */}
@@ -98,13 +97,9 @@ const Index = () => {
         }}
       ></div>
 
-      {/* 桜のエフェクト */}
-      <div className="fixed inset-0 z-[1] pointer-events-none">
-        <SakuraParticles />
-      </div>
+      {/* ▼ 修正: ここにあった <SakuraParticles /> の呼び出しをまるごと削除しました ▼ */}
 
-      {/* 左カラム */}
-      {/* ▼ 修正: relative を削除し、元々の sticky が効くように戻しました */}
+      {/* 左カラム（PC専用） */}
       <aside className="hidden lg:flex flex-1 min-w-0 sticky top-0 h-screen flex-col justify-center items-center z-10 px-6">
         <div className="flex flex-col justify-between items-center w-full h-[75vh] min-h-[680px] py-10">
             <div className="flex-1 flex items-center justify-center w-full">
@@ -114,13 +109,43 @@ const Index = () => {
                 className="w-full max-w-[80%] object-contain drop-shadow-xl transform hover:scale-105 transition-transform duration-500"
                 />
             </div>
-            <div className="w-full flex justify-center translate-y-12">
-                <CompanyInfoCard />
+
+            <div className="w-full flex flex-col items-center translate-y-4 xl:translate-y-8">
+              
+              {/* ===== PC版 SNS導線（CompanyInfoCardの上） ===== */}
+              <div className="flex flex-col items-center gap-3 mb-5 px-2 w-full">
+                <p className="text-xs xl:text-sm text-[#0B1E46] font-bold tracking-wide text-center">
+                  最新の登壇企業情報や就活対策を配信中！
+                </p>
+                <div className="flex flex-row gap-2 xl:gap-3 justify-center w-full">
+                  {/* X (旧Twitter) */}
+                  <a
+                    href="https://x.com/kansai_mlc?s=21&t=axJ02Uz3Tn08l-b1j33" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-[100px] xl:w-[120px] h-[44px] xl:h-[48px] bg-black hover:opacity-80 transition-opacity rounded-lg shadow-sm group"
+                  >
+                    <img src="/logo-X.png" alt="Xロゴ" className="h-4 xl:h-5 w-auto object-contain group-hover:scale-110 transition-transform" />
+                  </a>
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/kansaishukatsu_mlc/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-[100px] xl:w-[120px] h-[44px] xl:h-[48px] bg-white hover:opacity-80 transition-opacity border border-slate-200 rounded-lg shadow-sm group"
+                  >
+                    <img src="/logo-instagram.png" alt="Instagramロゴ" className="h-5 xl:h-6 w-auto object-contain group-hover:scale-110 transition-transform" />
+                  </a>
+                </div>
+              </div>
+              {/* ===== SNS導線ここまで ===== */}
+
+              <CompanyInfoCard />
             </div>
         </div>
       </aside>
 
-      {/* メインコンテンツ */}
+      {/* メインコンテンツ（中央のスクロールする部分） */}
       <main className="flex-1 lg:flex-1 min-w-0 relative z-20 shadow-none lg:shadow-2xl bg-transparent lg:bg-white/90 lg:backdrop-blur-md pb-32">
           
           <div id="top"><HeroSection /></div>
@@ -136,14 +161,40 @@ const Index = () => {
           <div id="voice"><VoiceSection /></div>
           <div id="faq"><FAQSection /></div>
 
-          {/* スマホ下部のグレー背景を透明に変更 */}
-          <div className="lg:hidden w-full px-4 py-12 flex justify-center bg-transparent">
+          {/* スマホ版（CompanyInfoCardの上） */}
+          <div className="lg:hidden w-full px-4 pt-8 pb-12 flex flex-col items-center gap-8 bg-transparent">
+            
+            {/* ===== スマホ版 SNS導線 ===== */}
+            <div className="flex flex-col items-center gap-4 w-full">
+              <p className="text-sm font-bold text-[#0B1E46] tracking-wide text-center">
+                最新の登壇企業情報や就活対策を配信中！
+              </p>
+              <div className="flex flex-row gap-4 justify-center w-full">
+                <a
+                  href="https://x.com/kansai_mlc?s=21&t=axJ02Uz3Tn08l-b1j33" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-[130px] h-[50px] bg-black hover:opacity-80 transition-opacity rounded-xl shadow-sm group"
+                >
+                  <img src="/logo-X.png" alt="Xロゴ" className="h-5 w-auto object-contain group-hover:scale-110 transition-transform" />
+                </a>
+                <a
+                  href="https://www.instagram.com/kansaishukatsu_mlc/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-[130px] h-[50px] bg-white hover:opacity-80 transition-opacity border border-slate-200 rounded-xl shadow-sm group"
+                >
+                  <img src="/logo-instagram.png" alt="Instagramロゴ" className="h-6 w-auto object-contain group-hover:scale-110 transition-transform" />
+                </a>
+              </div>
+            </div>
+            {/* ===== SNS導線ここまで ===== */}
+
             <CompanyInfoCard />
           </div>
       </main>
 
       {/* 右カラム */}
-      {/* ▼ 修正: relative を削除し、元々の sticky が効くように戻しました */}
       <aside className="hidden lg:flex flex-1 min-w-0 sticky top-0 h-screen flex-col justify-center pl-8 xl:pl-12 z-10">
         <div className="w-full max-w-xs space-y-10">
             <nav className="space-y-5 border-l-2 border-slate-300 pl-6">

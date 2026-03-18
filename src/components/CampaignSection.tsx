@@ -1,4 +1,5 @@
 import { Gift, Users } from "lucide-react";
+import React from "react";
 
 const CampaignSection = () => {
   return (
