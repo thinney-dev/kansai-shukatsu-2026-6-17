@@ -12,7 +12,7 @@ const images = [
 
 // ▼▼▼ 6月LP用：下部に表示するテキストリスト ▼▼▼
 const otherCompanies = [
-   "Coming Soon...", "Coming Soon...", "Coming Soon..."
+   "残り枠３社Coming Soon..."
 ];
 // ▲▲▲ 追加ここまで ▲▲▲
 
@@ -92,20 +92,21 @@ const HeroSection = () => {
         <div className="w-screen md:w-full max-w-5xl mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500 bg-white py-6 md:py-10 md:rounded-2xl border-y md:border border-slate-200/80 shadow-sm flex flex-col justify-center items-center px-4 sm:px-8">
             
             {/* 上段：メインロゴ（logo-hero.png の一枚絵） */}
-            <div className="flex justify-center items-center w-full max-w-3xl mb-6 md:mb-8 px-2">
-               <img 
-                 src="/logo-hero.png" 
-                 alt="参加決定企業一覧"
-                 onError={(e) => {
-                   e.currentTarget.src = "https://placehold.co/800x300/e2e8f0/64748b?text=logo-hero.png";
-                   e.currentTarget.className = "w-full max-w-[600px] h-auto object-contain opacity-70 rounded-md";
-                 }}
-                 className="w-full h-auto object-contain drop-shadow-sm"
-               />
-            </div>
+              <div className="flex justify-center items-center w-full max-w-3xl mb-6 md:mb-8 px-2">
+                <img 
+                  src="/logo-hero.png" 
+                  alt="参加決定企業一覧"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://placehold.co/800x300/e2e8f0/64748b?text=logo-hero.png";
+                    e.currentTarget.className = "w-full max-w-[600px] h-auto object-contain opacity-70"; // rounded-mdも削除
+                  }}
+                  className="w-full h-auto object-contain" // drop-shadow-sm（影）を削除
+                />
+              </div>
 
             {/* 下段：その他の社名テキスト（スラッシュ区切り） */}
-            <div className="w-full max-w-3xl flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-x-6 md:gap-y-3 pt-2 md:pt-4 border-t border-slate-100">
+            {/* ▼ 修正：border-t と border-slate-100（横線）を削除しました ▼ */}
+            <div className="w-full max-w-3xl flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-x-6 md:gap-y-3 pt-2 md:pt-4">
                 {otherCompanies.map((name, index) => (
                   <div key={index} className="flex items-center">
                     {/* ▼ 修正：テキストカラーを #0B1E46 に戻しました ▼ */}
