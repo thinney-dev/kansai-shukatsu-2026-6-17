@@ -79,7 +79,7 @@ const HeroSection = () => {
                 <div className="absolute bottom-0 left-0 w-12 h-12 bg-gradient-to-tr from-[#DC143C]/5 to-transparent rounded-tr-full z-0 pointer-events-none"></div>
                 
                 <p className="relative z-10 text-[11px] md:text-sm font-bold text-slate-500 mb-1.5 tracking-wider">
-                  ＼ 少数精鋭のトップ学生が挑む、超難関ファーム ／
+                  ＼ 少数精鋭のトップ学生が挑む、超難関企業 ／
                 </p>
                 <p className="relative z-10 text-[13px] md:text-lg font-bold text-[#0B1E46] leading-relaxed">
                   <span className="text-[#fd5109] font-black text-lg md:text-2xl tracking-wide mx-1">PwC Strategy&</span><span className="text-xs md:text-sm">（戦略コンサル部門）</span>
