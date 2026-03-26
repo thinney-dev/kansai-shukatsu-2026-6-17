@@ -41,13 +41,15 @@ const CompaniesSection = () => {
     }
   };
 
-  // ▼▼▼ 6月LP用：出展企業リスト（P&Gを追加） ▼▼▼
+  // ▼▼▼ 出展企業リスト ▼▼▼
   const companies = [
     { 
       id: 1, 
       name: "PwCコンサルティング", 
       tags: ["戦略コンサル", "外資系"], 
-      logoImage: "/logo-PwC.png",
+      // ▼ 修正：ロゴ画像を削除し、テキストロゴと注記を追加 ▼
+      textLogo: "PwC",
+      logoSubText: "※ロゴ申請中",
       url: "https://www.pwc.com/jp/ja/about-us/member/consulting.html",
       details: {
         catchphrase: "世界を牽引する戦略コンサルティング部門（Strategy&）",
@@ -74,7 +76,7 @@ const CompaniesSection = () => {
           { label: "グローバル基盤", value: "世界150以上の国・地域に展開" },
           { label: "成長性", value: "国内市場を牽引する圧倒的案件数とナレッジ" }
         ],
-        strength: "デロイト トーマツ グループは、国内約1.1https://kansai-shukatsu-2026-6-17.pages.dev/万人の専門家を擁する日本最大級のプロフェッショナルファームです。最大の強みは、他ファームを凌駕する圧倒的な「規模」と「総合力」にあります。単なる総合コンサルティングに留まらず、グループ内に世界的戦略ファームである『Monitor Deloitte（モニター デロイト）』を擁し、最上流の戦略策定から、M&A、業務改革、最先端のテクノロジー実装まで、真の意味での一気通貫（エンドツーエンド）を実現しています。国内トップクラスの案件数と多様な専門家が交差する環境は、ビジネスの変革を最前線でリードしたい学生にとって、最高峰の成長フィールドです。"
+        strength: "デロイト トーマツ グループは、国内約1.1万人の専門家を擁する日本最大級のプロフェッショナルファームです。最大の強みは、他ファームを凌駕する圧倒的な「規模」と「総合力」にあります。単なる総合コンサルティングに留まらず、グループ内に世界的戦略ファームである『Monitor Deloitte（モニター デロイト）』を擁し、最上流の戦略策定から、M&A、業務改革、最先端のテクノロジー実装まで、真の意味での一気通貫（エンドツーエンド）を実現しています。国内トップクラスの案件数と多様な専門家が交差する環境は、ビジネスの変革を最前線でリードしたい学生にとって、最高峰の成長フィールドです。"
       }
     },
     { 
@@ -150,12 +152,22 @@ const CompaniesSection = () => {
               className="bg-white rounded-xl border border-slate-200 p-4 flex flex-col items-center justify-center gap-3 md:gap-4 shadow-sm hover:shadow-md transition-all h-44 md:h-48 w-full cursor-pointer group overflow-hidden focus:outline-none focus:ring-2 focus:ring-[#B8860B]/50"
             >
               <div className="w-full h-14 md:h-16 flex items-center justify-center px-2">
+                {/* ▼ 修正：画像がある場合と、テキストロゴがある場合の分岐を追加 ▼ */}
                 {company.logoImage ? (
                   <img 
                     src={company.logoImage} 
                     alt={`${company.name} ロゴ`}
                     className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity mix-blend-multiply" 
                   />
+                ) : company.textLogo ? (
+                  <div className="flex flex-col items-center justify-center">
+                    <span className="font-black text-2xl md:text-3xl text-[#0B1E46] tracking-wider transition-colors">
+                      {company.textLogo}
+                    </span>
+                    <span className="text-[9px] text-slate-400 font-medium mt-1">
+                      {company.logoSubText}
+                    </span>
+                  </div>
                 ) : (
                   <span className="font-black text-xl md:text-3xl text-slate-300 group-hover:text-slate-400 transition-colors">
                     {company.name}
@@ -203,12 +215,24 @@ const CompaniesSection = () => {
                     <X className="w-5 h-5" />
                   </button>
                   
-                  <div className="h-12 md:h-16 w-full max-w-[80%] flex justify-center mb-3">
-                    <img 
-                      src={selectedCompany.logoImage} 
-                      alt={selectedCompany.name} 
-                      className="h-full w-auto object-contain mix-blend-multiply"
-                    />
+                  <div className="h-12 md:h-16 w-full max-w-[80%] flex justify-center items-center mb-3">
+                    {/* ▼ 修正：モーダル内も同様に分岐を追加 ▼ */}
+                    {selectedCompany.logoImage ? (
+                      <img 
+                        src={selectedCompany.logoImage} 
+                        alt={selectedCompany.name} 
+                        className="h-full w-auto object-contain mix-blend-multiply"
+                      />
+                    ) : selectedCompany.textLogo ? (
+                      <div className="flex flex-col items-center justify-center">
+                        <span className="font-black text-3xl md:text-4xl text-[#0B1E46] tracking-wider">
+                          {selectedCompany.textLogo}
+                        </span>
+                        <span className="text-[10px] text-slate-400 font-medium mt-1">
+                          {selectedCompany.logoSubText}
+                        </span>
+                      </div>
+                    ) : null}
                   </div>
                   <h3 className="text-xl font-bold text-[#0B1E46] text-center">{selectedCompany.name}</h3>
                   <p className="text-xs font-bold text-[#B8860B] mt-1.5 text-center px-4">{selectedCompany.details.catchphrase}</p>
