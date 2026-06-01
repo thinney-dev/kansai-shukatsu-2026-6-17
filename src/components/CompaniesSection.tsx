@@ -61,7 +61,7 @@ const CompaniesSection = () => {
 
       id: 9,
   
-      name: "株式会社ニアメロ",
+      name: "ニアメロ",
   
       tags: ["広告", "新規事業"],
   
@@ -73,7 +73,7 @@ const CompaniesSection = () => {
   
       id: 10,
   
-      name: "株式会社TENTIAL",
+      name: "TENTIAL",
   
       tags: ["D2C", "ヘルスケア"],
   
@@ -85,7 +85,7 @@ const CompaniesSection = () => {
   
       id: 11,
   
-      name: "シービーアールイー株式会社",
+      name: "シービーアールイー",
   
       tags: ["不動産", "外資"],
   
