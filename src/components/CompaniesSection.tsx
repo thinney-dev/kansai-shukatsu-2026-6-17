@@ -57,9 +57,41 @@ const CompaniesSection = () => {
       tags: ["経営コンサル", "ベンチャー"],  
       logoImage: "/logo-RACE.png",   
     },
-    { id: 9, name: "Coming Soon", tags: ["？？？", "？？？"], isComingSoon: true },
-    { id: 10, name: "Coming Soon", tags: ["？？？", "？？？"], isComingSoon: true },
-    { id: 11, name: "Coming Soon", tags: ["？？？", "？？？"], isComingSoon: true },
+    {
+
+      id: 9,
+  
+      name: "株式会社ニアメロ",
+  
+      tags: ["広告", "新規事業"],
+  
+      logoImage: "/logo-ニアメロ.png",
+  
+    },
+  
+    {
+  
+      id: 10,
+  
+      name: "株式会社TENTIAL",
+  
+      tags: ["D2C", "ヘルスケア"],
+  
+      logoImage: "/logo-tential.png",
+  
+    },
+  
+    {
+  
+      id: 11,
+  
+      name: "シービーアールイー株式会社",
+  
+      tags: ["不動産", "外資"],
+  
+      logoImage: "/logo-CBRE.png",
+  
+    },
   ];
 
   return (
