@@ -14,6 +14,12 @@ const CompaniesSection = () => {
       logoImage: "/logo-PWC.png",
     },
     { 
+      id: 5, 
+      name: "野村證券", 
+      tags: ["国内最大手証券", "金融"], 
+      logoImage: "/logo-野村證券.png",
+    },
+    { 
       id: 2, 
       name: (
         <>
@@ -30,15 +36,10 @@ const CompaniesSection = () => {
           EYストラテジー・アンド・コンサルティング<br />（戦略部門）
         </>
       ), 
-      tags: ["総合コンサル", "戦略部門"],
+      tags: ["総合コンサル", "外資系"],
       logoImage: "/logo-EY.png",
     },
-    { 
-      id: 5, 
-      name: "野村證券", 
-      tags: ["国内最大手証券", "金融"], 
-      logoImage: "/logo-野村證券.png",
-    },
+
     { 
       id: 6, 
       name: "富士通", 
