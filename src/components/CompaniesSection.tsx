@@ -7,10 +7,10 @@ const CompaniesSection = () => {
       id: 1, 
       name: (
         <>
-          PwCコンサルティング<br />（戦略部門）
+          PwCコンサルティング
         </>
       ), 
-      tags: ["戦略コンサル", "外資系"], 
+      tags: ["外資系", "戦略部門"], 
       logoImage: "/logo-PWC.png",
     },
     { 
@@ -23,20 +23,20 @@ const CompaniesSection = () => {
       id: 2, 
       name: (
         <>
-          デロイト トーマツ<br />ベンチャーサポート
+          デロイト トーマツ ベンチャーサポート
         </>
       ), 
-      tags: ["起業支援", "新規事業"], 
+      tags: ["官公庁支援", "新規事業"], 
       logoImage: "/logo-delo.png",
     },
     { 
       id: 3, 
       name: (
         <>
-          EYストラテジー・アンド・コンサルティング<br />（戦略部門）
+          EYストラテジー・アンド・コンサルティング
         </>
       ), 
-      tags: ["総合コンサル", "外資系"],
+      tags: ["外資系", "戦略部門"],
       logoImage: "/logo-EY.png",
     },
 
