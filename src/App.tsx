@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 const App = () => {
 
   // ▼▼▼ ここから追加（メンテナンス画面の処理） ▼▼▼
-  const isMaintenanceMode = true; // メンテナンスを終了する時はここを false にする
+  const isMaintenanceMode = false; // メンテナンスを終了する時はここを false にする 反対は true にする
 
   if (isMaintenanceMode) {
     return (

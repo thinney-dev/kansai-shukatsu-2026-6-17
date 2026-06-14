@@ -1,5 +1,4 @@
 import React from "react";
-import { text } from "stream/consumers";
 
 const CompaniesSection = () => {
   // ▼▼▼ 出展企業リスト ▼▼▼
@@ -40,7 +39,6 @@ const CompaniesSection = () => {
       tags: ["外資系", "戦略部門"],
       logoImage: "/logo-EY.png",
     },
-
     { 
       id: 5, 
       name: "富士通", 
@@ -59,41 +57,23 @@ const CompaniesSection = () => {
       tags: ["経営コンサル", "ベンチャー"],  
       logoImage: "/logo-RACE.png",   
     },
-
-  
     {
-  
       id: 8,
-  
       name: "TENTIAL",
-  
       tags: ["D2C", "ヘルスケア"],
-  
       logoImage: "/logo-tential.png",
-  
     },
-  
     {
-  
       id: 9,
-  
       name: "シービーアールイー",
-  
       tags: ["不動産", "外資"],
-  
       logoImage: "/logo-CBRE.png",
-  
     },
     {
-  
       id: 10,
-  
-      textLogo: "coming soon...",
-  
-      tags: ["coming soon..."],
-  
-      logoImage: "/coming-soon.png",
-  
+      name: "", // 👈 下部のテキストを非表示にするため空文字に変更
+      textLogo: "coming soon...", 
+      tags: [], // 👈 タグを非表示にするため空配列に変更
     },
   ];
 
@@ -133,7 +113,7 @@ const CompaniesSection = () => {
                   />
                 ) : company.textLogo ? (
                   <div className="flex flex-col items-center justify-center">
-                    <span className="font-black text-2xl md:text-3xl text-[#0B1E46] tracking-wider transition-colors">
+                    <span className="font-bold text-xl md:text-2xl text-slate-400 tracking-wider transition-colors">
                       {company.textLogo}
                     </span>
                     <span className="text-[9px] text-slate-400 font-medium mt-1">
