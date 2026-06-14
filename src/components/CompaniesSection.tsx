@@ -1,4 +1,5 @@
 import React from "react";
+import { text } from "stream/consumers";
 
 const CompaniesSection = () => {
   // ▼▼▼ 出展企業リスト ▼▼▼
@@ -14,13 +15,13 @@ const CompaniesSection = () => {
       logoImage: "/logo-PWC.png",
     },
     { 
-      id: 5, 
+      id: 2, 
       name: "野村證券", 
       tags: ["国内最大手証券", "金融"], 
       logoImage: "/logo-野村證券.png",
     },
     { 
-      id: 2, 
+      id: 3, 
       name: (
         <>
           デロイト トーマツ ベンチャーサポート
@@ -30,7 +31,7 @@ const CompaniesSection = () => {
       logoImage: "/logo-delo.png",
     },
     { 
-      id: 3, 
+      id: 4, 
       name: (
         <>
           EYストラテジー・アンド・コンサルティング
@@ -41,19 +42,19 @@ const CompaniesSection = () => {
     },
 
     { 
-      id: 6, 
+      id: 5, 
       name: "富士通", 
       tags: ["IT・通信", "グローバルSIer"], 
       logoImage: "/logo-富士通.png",
     },
     {
-      id: 7,
+      id: 6,
       name: "損害保険ジャパン",
       tags: ["保険", "損保"],
       logoImage: "/logo-損保.png",
     },
     {
-      id: 8,  
+      id: 7,  
       name: "レイスグループ",   
       tags: ["経営コンサル", "ベンチャー"],  
       logoImage: "/logo-RACE.png",   
@@ -62,7 +63,7 @@ const CompaniesSection = () => {
   
     {
   
-      id: 10,
+      id: 8,
   
       name: "TENTIAL",
   
@@ -74,13 +75,24 @@ const CompaniesSection = () => {
   
     {
   
-      id: 11,
+      id: 9,
   
       name: "シービーアールイー",
   
       tags: ["不動産", "外資"],
   
       logoImage: "/logo-CBRE.png",
+  
+    },
+    {
+  
+      id: 10,
+  
+      textLogo: "coming soon...",
+  
+      tags: ["coming soon..."],
+  
+      logoImage: "/coming-soon.png",
   
     },
   ];
