@@ -28,7 +28,7 @@ const NextEventSection = () => {
             
             {/* 説明文 */}
             <p className="text-[13px] md:text-sm text-slate-500 font-medium mb-2">
-              別日程でも同規模の特別座談会を開催予定です。<br className="md:hidden" />
+              別日程でも同規模の座談会を開催予定です。<br className="md:hidden" />
               詳細の公開まで今しばらくお待ちください。
             </p>
 

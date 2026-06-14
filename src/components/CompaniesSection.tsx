@@ -58,17 +58,7 @@ const CompaniesSection = () => {
       tags: ["経営コンサル", "ベンチャー"],  
       logoImage: "/logo-RACE.png",   
     },
-    {
 
-      id: 9,
-  
-      name: "ニアメロ",
-  
-      tags: ["広告", "新規事業"],
-  
-      logoImage: "/logo-ニアメロ.png",
-  
-    },
   
     {
   
