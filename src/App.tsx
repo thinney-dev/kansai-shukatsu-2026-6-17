@@ -9,9 +9,7 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 const App = () => {
-
-  // ▼▼▼ ここから追加（メンテナンス画面の処理） ▼▼▼
-  const isMaintenanceMode = false; // メンテナンスを終了する時はここを false にする 反対は true にする
+  const isMaintenanceMode = false;
 
   if (isMaintenanceMode) {
     return (
@@ -26,9 +24,7 @@ const App = () => {
       </div>
     );
   }
-  // ▲▲▲ ここまで追加 ▲▲▲
 
-  // 以下の本来のコードは一切変更していない（上のreturnが実行されるため、現在は無視される）
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -37,6 +33,7 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/2026-06-17" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
